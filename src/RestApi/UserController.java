@@ -1,4 +1,4 @@
-package restApi;
+package RestApi;
 
 public class UserController {
 }
