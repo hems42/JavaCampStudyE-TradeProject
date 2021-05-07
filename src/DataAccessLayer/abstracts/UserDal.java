@@ -1,4 +1,6 @@
 package DataAccessLayer.abstracts;
 
-public interface UserDal {
+import Entities.concretes.User;
+
+public interface UserDal extends BaseCrudDal<User> {
 }
