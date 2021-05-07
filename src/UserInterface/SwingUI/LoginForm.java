@@ -13,14 +13,14 @@ public class LoginForm extends JFrame {
     private JCheckBox showPasswordCheckBox;
     private JButton loginButton;
 
-    public LoginForm() throws HeadlessException {
+    public LoginForm()  {
 
 
 
         add(loginform);
         setTitle("Login to E-Trade");
         setSize(600,300);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         loginButton.addActionListener(new ActionListener() {
             @Override

@@ -8,4 +8,9 @@ public class GoogleAccountOfMailServiceAdapter implements CheckEmailService {
     public boolean isValidMail(String e_mail) {
         return new GoogleAccountsManager().isValidMailAdress(e_mail);
     }
+
+    @Override
+    public boolean isAlreadyUsedMail(String e_mail) {
+        return new GoogleAccountsManager().isAllreadyUsedMailAdress(e_mail);
+    }
 }

@@ -72,4 +72,22 @@ public class User implements Entity {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    public String getFullName()
+    {
+        return  getName()+ " "+ getSurname();
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", eMail='" + eMail + '\'' +
+                ", password='" + password + '\'' +
+                ", sex='" + sex + '\'' +
+                '}';
+    }
 }

@@ -1,22 +1,12 @@
 package OutSourceService.JCheckEmailOutSourceService;
 
-import Entities.concretes.CreatedEmails;
+import Entities.concretes.TestingDataBase;
 
 public class JCheckEmailManager {
    public boolean isValidMail(String mailAdress)
     {
-        if(CreatedEmails.createdEmailList.contains(mailAdress))
-        {
-            System.out.println(mailAdress + " adresi daha önce başka bir kayıtta kullanılmıştır lütfen başka bir mail hesabı kullanın!!!");
-            return false;
-        }
-        {
-            System.out.println(mailAdress + " adresi doğrulaması başarılı...");
-
-
-            return true;
-        }
-
+        TestingDataBase.createdLogList2.add(mailAdress+ " adresinin geçerlilği onaylanmıştır.");
+       return true;
     }
 
 }

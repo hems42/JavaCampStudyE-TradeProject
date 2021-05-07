@@ -2,5 +2,10 @@ package Core.abstracts;
 
 public interface LoggerService {
 
-    void log(String logMessage);
+
+    void logDatabase(String logMessage);
+    void logEmail(String logMessage);
+    void logSms(String logMessage);
+    void logFile(String logMessage);
+
 }

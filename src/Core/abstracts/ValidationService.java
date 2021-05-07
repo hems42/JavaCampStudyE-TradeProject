@@ -2,5 +2,9 @@ package Core.abstracts;
 
 public interface ValidationService {
 
-    boolean isValid(String s);
+
+    boolean isValidName(String s);
+    boolean isValidSurName(String s);
+       boolean isValidEmailFormat(String s);
+       boolean isValidPassword(String s);
 }

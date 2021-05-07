@@ -7,4 +7,10 @@ public class GoogleAccountsManager {
     {
         return  true;
     }
+
+
+    public  boolean isAllreadyUsedMailAdress(String googleMailAdress)
+    {
+        return  false;
+    }
 }

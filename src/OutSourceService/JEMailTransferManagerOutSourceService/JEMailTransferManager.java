@@ -1,9 +1,13 @@
 package OutSourceService.JEMailTransferManagerOutSourceService;
 
+import Entities.concretes.TestingDataBase;
+
 public class JEMailTransferManager {
 
-    void sendMail(String emailMessage, String eMailAdress)
+    public void sendMail(String emailMessage, String eMailAdress)
     {
-        System.out.println(eMailAdress+ "  adresine "+ emailMessage + "  notu yollanmıştır");
+
+        TestingDataBase.createdLogList2.add(eMailAdress+ "  adresine "+ emailMessage + "  e-mail olarak " +
+                "yollanmıştır");
     }
 }
