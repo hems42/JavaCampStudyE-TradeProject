@@ -16,18 +16,26 @@ public class JCheckEmailServiceAdapter implements CheckEmailService {
 
     @Override
     public boolean isAlreadyUsedMail(String e_mail) {
-        if(TestingDataBase.createdEmailList.contains(e_mail))
-        {
-           TestingDataBase.createdLogList2.add(e_mail + " adresi daha önce başka bir kayıtta kullanılmıştır lütfen başka bir mail hesabı kullanın!!!");
-            return false;
-        }
-        {
 
+        boolean result=false;
+
+        for(String s:TestingDataBase.createdEmailList)
+        {
+            if(s.equals(e_mail))
+            {
+                result=true;
+                TestingDataBase.createdLogList2.add(e_mail +
+                        " adresi daha önce başka bir kayıtta kullanılmıştır lütfen başka bir mail hesabı kullanın!!!");
+                break;
+            }
+        }
+
+        if(result==false)
+        {
             TestingDataBase.createdLogList2.add(e_mail + " adresi doğrulaması başarılı...");
-
-
-            return true;
         }
+
+        return result;
 
     }
 

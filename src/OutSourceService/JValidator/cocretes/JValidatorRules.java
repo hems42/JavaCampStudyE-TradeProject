@@ -21,19 +21,20 @@ public class JValidatorRules implements BaseValidatorRules {
 
 
     @Override
-    public boolean isContainDigit(String s)
-    {
+    public boolean isContainDigit(String s) {
+        boolean result = false;
 
-        if(Pattern.matches("[0-9]",s))
-        {
-            return true;
-        }
-        else
-        {
-            return  false;
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isDigit(s.charAt(i))) {
+                result = true;
+                break;
             }
         }
 
+
+        return result;
+
+    }
 
     @Override
     public boolean isContainCharacter(String s)

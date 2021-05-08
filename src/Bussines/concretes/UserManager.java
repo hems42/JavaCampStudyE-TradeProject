@@ -16,49 +16,26 @@ public class UserManager implements UserService {
 
     private LoggerService loggerService;
     private ValidationService validationService;
-    private CheckEmailService checkEmailService;
     private UserDal userDal;
-    private EmailTransferService emailTransferService;
 
-    public UserManager(LoggerService loggerService,
-                       ValidationService validationService,
-                       CheckEmailService checkEmailService,
-                       UserDal userDal,
-                       EmailTransferService emailTransferService) {
+    public UserManager(LoggerService loggerService, ValidationService validationService, UserDal userDal) {
         this.loggerService = loggerService;
         this.validationService = validationService;
-        this.checkEmailService = checkEmailService;
         this.userDal = userDal;
-        this.emailTransferService = emailTransferService;
     }
 
     @Override
     public void add(User user) {
         if(isValidUser(user))
         {
-            if(checkEmailService.isValidMail(user.geteMail()))
-            {
 
-                if(checkEmailService.isAlreadyUsedMail(user.geteMail()))
-                {
+            userDal.add(user);
+            loggerService.logDatabase(user.getFullName()+ " kişisi başarıyla kaydedildi");
 
-                    userDal.add(user);
-                    loggerService.logDatabase(user.getFullName()+ " kişisi başarıyla kaydedildi");
-                    emailTransferService.sendMail(user.getFullName()+ " kişisi başarıyla kaydedildi mesajı\n"
-                    + user.geteMail()+ " mail adresine  gönderilen link ile üyeliğinizi tamamlayın lütfen... ",user.geteMail());
-                    TestingDataBase.createdEmailList.add(user.geteMail());
-
-                }
-                else {
-                    TestingDataBase.createdLogList.put(TestingDataBase.TAG_EMAIL_EXIST,"Bu Email Hesabı ile Daha Önce Kayıt Yapılmış!!! ");
-
-                }
-
-            }
-            else
-            {
-                TestingDataBase.createdLogList.put(TestingDataBase.TAG_EMAIL_EXIST,"Geçerli Bir Email Hesabı Giriniz!!! ");
-            }
+        }
+        else
+        {
+            TestingDataBase.createdLogList2.add(user.getFullName()+ " isimli kullanıcı kaydı başarısız oldu.");
         }
     }
 

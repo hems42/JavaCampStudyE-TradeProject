@@ -33,6 +33,7 @@ public class HibernateUserDal implements UserDal {
     public void update(User user) {
         for(User user1:TestingDataBase.createdUserList)
         {
+            System.out.println("okuna e mail adresi "+user1.geteMail());
             if(user1==user)
             {
                 TestingDataBase.createdUserList.remove(user1);
